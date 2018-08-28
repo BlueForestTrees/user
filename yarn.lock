@@ -1492,7 +1492,7 @@ event-stream@~3.3.0:
     stream-combiner "~0.0.4"
     through "~2.3.1"
 
-exceljs@^1.6.0:
+exceljs@1.6.0:
   version "1.6.0"
   resolved "https://registry.yarnpkg.com/exceljs/-/exceljs-1.6.0.tgz#a89aa0f62360226a714ac3cf3079fb15742aa641"
   dependencies:
@@ -1905,7 +1905,7 @@ growl@1.10.3:
   version "1.10.3"
   resolved "https://registry.yarnpkg.com/growl/-/growl-1.10.3.tgz#1926ba90cf3edfe2adb4927f5880bc22c66c790f"
 
-handlebars@^4.0.11:
+handlebars@4.0.11:
   version "4.0.11"
   resolved "https://registry.yarnpkg.com/handlebars/-/handlebars-4.0.11.tgz#630a35dfe0294bc281edae6ffc5d329fc7982dcc"
   dependencies:
@@ -2293,10 +2293,11 @@ isobject@^3.0.0, isobject@^3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/isobject/-/isobject-3.0.1.tgz#4e431e92b11a9731636aa1f9c8d1ccbcfdab78df"
 
-items-service@1.0.9:
-  version "1.0.9"
-  resolved "https://registry.yarnpkg.com/items-service/-/items-service-1.0.9.tgz#cf4783e83fb6cbf32280361adc587d4c59cab040"
+items-service@1.0.11:
+  version "1.0.11"
+  resolved "https://registry.yarnpkg.com/items-service/-/items-service-1.0.11.tgz#8044d8fd9291e17c0c4202213cb3feb1f89f2187"
   dependencies:
+    debug "^3.1.0"
     fraction.js "4.0.9"
     regex-escape "3.4.8"
 
@@ -2355,7 +2356,7 @@ jsonpath@1.0.0:
     static-eval "2.0.0"
     underscore "1.7.0"
 
-jsonwebtoken@^8.3.0:
+jsonwebtoken@8.3.0:
   version "8.3.0"
   resolved "https://registry.yarnpkg.com/jsonwebtoken/-/jsonwebtoken-8.3.0.tgz#056c90eee9a65ed6e6c72ddb0a1d325109aaf643"
   dependencies:
@@ -2773,7 +2774,7 @@ negotiator@0.6.1:
   version "0.6.1"
   resolved "https://registry.yarnpkg.com/negotiator/-/negotiator-0.6.1.tgz#2b327184e8992101177b28563fb5e7102acd0ca9"
 
-nested-error-stacks@^2.1.0:
+nested-error-stacks@2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/nested-error-stacks/-/nested-error-stacks-2.1.0.tgz#0fbdcf3e13fe4994781280524f8b96b0cdff9c61"
 
@@ -2807,7 +2808,7 @@ node-unzip-2@^0.2.7:
     readable-stream "~1.0.0"
     setimmediate "~1.0.1"
 
-nodemailer@^4.6.8:
+nodemailer@4.6.8:
   version "4.6.8"
   resolved "https://registry.yarnpkg.com/nodemailer/-/nodemailer-4.6.8.tgz#f82fb407828bf2e76d92acc34b823d83e774f89c"
 
@@ -3474,7 +3475,7 @@ setprototypeof@1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/setprototypeof/-/setprototypeof-1.1.0.tgz#d0bd85536887b6fe7c0d818cb962d9d91c54e656"
 
-sha1@^1.1.1:
+sha1@1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/sha1/-/sha1-1.1.1.tgz#addaa7a93168f393f19eb2b15091618e2700f848"
   dependencies:
