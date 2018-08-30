@@ -1,5 +1,5 @@
 import {run} from 'express-blueforest'
-import {validPassword, validMail, validWelcomeToken, validFullname} from "./validations"
+import {validPassword, validMail, validWelcomeToken, validFullname} from "../validations"
 import {authenticate, confirmSuscribe, startSuscribe} from "./authService"
 import {Router} from "express-blueforest"
 const router = Router()

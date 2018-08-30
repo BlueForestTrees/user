@@ -1,5 +1,5 @@
 import ENV from "../env"
-import {UnauthorizedError} from "./Errors"
+import {UnauthorizedError} from "../const/errors"
 import {findUserByMail, insertNewUser, confirmUser} from "./userService"
 import sha1 from 'sha1'
 import jwt from "jsonwebtoken"
