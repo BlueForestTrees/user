@@ -5,7 +5,7 @@ import {cols} from "../src/const/collections"
 export const validPostMailSpec = {
     req: {
         method: "POST",
-        url: "/api/mail",
+        url: "/api/auth/mail",
         body: {
             mail: "smedini@gmail.com"
         }
@@ -35,7 +35,7 @@ export const existingPostMailSpec = {
     },
     req: {
         method: "POST",
-        url: "/api/mail",
+        url: "/api/auth/mail",
         body: {
             mail: "smedini@gmail.com"
         }
@@ -49,7 +49,7 @@ export const existingPostMailSpec = {
 export const invalidPostMailSpec = {
     req: {
         method: "POST",
-        url: "/api/mail",
+        url: "/api/auth/mail",
         body: {
             mail: "smedini@gmail."
         }

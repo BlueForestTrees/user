@@ -7,6 +7,8 @@ const users = () => col(cols.USER)
 
 export const findUserByMail = mail => users().findOne({mail})
 
+export const findUserById = ({_id}) => users().findOne({_id})
+
 export const insertNewUser = mail => users().insertOne({status: userStatus.WANT_SUSCRIBE, mail, wantSuscribeDate: new Date()})
 
 export const confirmUser = ({mail, fullname, password}) => users().update({mail}, {

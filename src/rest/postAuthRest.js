@@ -2,16 +2,17 @@ import {run} from 'express-blueforest'
 import {validPassword, validMail, validWelcomeToken, validFullname} from "../validations"
 import {authenticate, confirmSuscribe, startSuscribe} from "./authService"
 import {Router} from "express-blueforest"
+
 const router = Router()
 
 module.exports = router
 
-router.post('/api/mail',
+router.post('/api/auth/mail',
     validMail,
     run(startSuscribe)
 )
 
-router.post('/api/confirm',
+router.post('/api/auth/confirm',
     validWelcomeToken,
     validFullname,
     validPassword,
