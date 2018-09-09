@@ -35,5 +35,15 @@ export const registry = [
             password: sha1("tirlititi"),
             color: "#1565c0"
         })
+    },
+    {
+        version: "1.0.1",
+        log: "User ADEME",
+        script: () => col(cols.USER).insertOne({
+            shortname: "ADEME",
+            fullname: "Agence de l'environnement et de la maîtrise de l'énergie",
+            color: "#c62828",
+            mail: "ademe@ademe.fr"
+        })
     }
 ]

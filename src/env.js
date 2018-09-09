@@ -26,8 +26,8 @@ const ENV = {
     MORGAN: process.env.MORGAN || ':status :method :url :response-time ms - :res[content-length]',
 
 
-    MAIL_CONFIG_PATH: process.env.MAIL_CONFIG_PATH ? path.resolve(process.env.MAIL_CONFIG_PATH, "mailConfig.json") : path.resolve("/etc/api-auth/mailConfig.json"),
-    MAIL_TEMPLATE_PATH: process.env.MAIL_TEMPLATE_PATH || path.resolve("/etc/api-auth/templates")
+    MAIL_CONFIG_PATH: process.env.MAIL_CONFIG_PATH ? path.resolve(process.env.MAIL_CONFIG_PATH, "mailConfig.json") : path.resolve("/etc/user/mailConfig.json"),
+    MAIL_TEMPLATE_PATH: process.env.MAIL_TEMPLATE_PATH || path.resolve("/etc/user/templates")
 }
 
 try {

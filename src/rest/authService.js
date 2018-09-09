@@ -29,7 +29,7 @@ export const confirmSuscribe = async ({t, fullname, password}, req, res) => {
 }
 
 export const authenticate = async function ({mail, password}, req, res) {
-    const user = await findUserByMail(mail)
+    const user = await findUserByMail({mail})
     if (!user) {
         throw new UnauthorizedError()
     } else if (user.password !== sha1(password)) {

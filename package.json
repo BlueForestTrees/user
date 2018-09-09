@@ -1,6 +1,6 @@
 {
   "name": "auth",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "auth",
   "main": "dist/index.js",
   "repository": "https://github.com/BlueForestTrees/api-auth.git",
@@ -42,7 +42,7 @@
     "items-service": "1.0.13",
     "jsonwebtoken": "8.3.0",
     "lodash": "4.17.10",
-    "mongo-registry": "1.0.12",
+    "mongo-registry": "1.0.13",
     "nested-error-stacks": "2.1.0",
     "nodemailer": "4.6.8",
     "sha1": "1.1.1",

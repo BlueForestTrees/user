@@ -3,9 +3,11 @@ import sha1 from 'sha1'
 import {userStatus} from "../const/userStatus"
 import {cols} from "../const/collections"
 
+const debug = require('debug')('api:user')
+
 const users = () => col(cols.USER)
 
-export const findUserByMail = mail => users().findOne({mail})
+export const findUserByMail = async ({mail, mixin}) => users().findOne({mail}, mixin)
 
 export const findUserById = ({_id}) => users().findOne({_id})
 

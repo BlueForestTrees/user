@@ -7,19 +7,19 @@ const router = Router()
 
 module.exports = router
 
-router.post('/api/auth/mail',
+router.post('/api/user/suscribe',
     validMail,
     run(startSuscribe)
 )
 
-router.post('/api/auth/confirm',
+router.post('/api/user/confirm',
     validWelcomeToken,
     validFullname,
     validPassword,
     run(confirmSuscribe)
 )
 
-router.post('/api/auth',
+router.post('/api/user/login',
     validMail,
     validPassword,
     run(authenticate)
