@@ -1,9 +1,9 @@
 {
-  "name": "auth",
+  "name": "user",
   "version": "1.0.1",
-  "description": "auth",
+  "description": "user",
   "main": "dist/index.js",
-  "repository": "https://github.com/BlueForestTrees/api-auth.git",
+  "repository": "https://github.com/BlueForestTrees/user.git",
   "author": "slim <smedini@gmail.com>",
   "license": "MIT",
   "scripts": {
