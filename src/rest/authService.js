@@ -41,29 +41,3 @@ export const authenticate = async function ({mail, password}, req, res) {
         return null
     }
 }
-
-export const validToken = (req, res, next) => {
-    verifyToken(req)
-    next()
-}
-
-const verifyToken = req => {
-    const token = req.headers[X_ACCESS_TOKEN]
-    if (token) {
-        try {
-            return jwt.verify(token, ENV.AUTH_TOKEN_SECRET)
-        } catch (e) {
-            throw new UnauthorizedError("bad token", e)
-        }
-    } else {
-        throw new UnauthorizedError("missing token")
-    }
-}
-
-export const validGod = function (req, res, next) {
-    const token = verifyToken(req)
-    if (!token.user.god) {
-        throw {status: 403}
-    }
-    next()
-}

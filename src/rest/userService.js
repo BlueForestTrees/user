@@ -7,13 +7,13 @@ const debug = require('debug')('api:user')
 
 const users = () => col(cols.USER)
 
-export const findUserByMail = async ({mail, mixin}) => users().findOne({mail}, mixin)
+export const findUserByMail = async ({mail, mixin}) => users().findOne({mail}, {projection: mixin})
 
 export const findUserById = ({_id}) => users().findOne({_id})
 
 export const insertNewUser = mail => users().insertOne({status: userStatus.WANT_SUSCRIBE, mail, wantSuscribeDate: new Date()})
 
-export const confirmUser = ({mail, fullname, password}) => users().update({mail}, {
+export const confirmUser = ({mail, fullname, password}) => users().updateOne({mail}, {
     $set: {
         status: userStatus.CONFIRMED,
         fullname,

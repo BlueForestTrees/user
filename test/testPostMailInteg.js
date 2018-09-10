@@ -1,17 +1,69 @@
-import {init, withTest} from "test-api-express-mongo"
-import {existingPostMailSpec, invalidPostMailSpec, validPostMailSpec} from "./postMailSpec"
+import {init, withError, withTest} from "test-api-express-mongo"
 import api from "../src/index"
 import ENV from "../src/env"
 import {cols} from "../src/const/collections"
+import {userStatus} from "../src/const/userStatus"
 
-describe('POST Mail', function () {
+describe('POST Suscription', function () {
 
     beforeEach(init(api, ENV, cols))
 
-    it('valid mail test big', withTest(validPostMailSpec))
+    it('suscription', withTest({
+        req: {
+            method: "POST",
+            url: "/api/user/suscribe",
+            body: {
+                mail: "smedini@gmail.com"
+            }
+        },
+        res: {
+            body: null
+        },
+        db: {
+            expected: {
+                colname: cols.USER,
+                doc: {
+                    mail: "smedini@gmail.com",
+                    status: userStatus.WANT_SUSCRIBE
+                }
+            }
+        }
+    }))
 
-    it('existing mail test', withTest(existingPostMailSpec))
+    it('suscription existing mail', withTest({
+        db: {
+            preChange: {
+                colname: cols.USER,
+                doc: {
+                    mail: "smedini@gmail.com"
+                }
+            }
+        },
+        req: {
+            method: "POST",
+            url: "/api/user/suscribe",
+            body: {
+                mail: "smedini@gmail.com"
+            }
+        },
+        res: {
+            code: 400,
+            body: withError(1,"allready exists")
+        }
+    }))
 
-    it('invalid mail test', withTest(invalidPostMailSpec))
+    it('suscription invalid mail', withTest({
+        req: {
+            method: "POST",
+            url: "/api/user/suscribe",
+            body: {
+                mail: "smedini@gmail."
+            }
+        },
+        res: {
+            code: 400,
+            bodypath: {path: "$.errors.mail.msg", value: ["mail invalid"]}
+        }
+    }))
 
 })

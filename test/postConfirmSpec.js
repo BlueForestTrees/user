@@ -6,7 +6,7 @@ import ENV from "../src/env"
 
 export const validConfirmSpec = {
     req: {
-        url: `/api/auth/confirm`,
+        url: `/api/user/confirm`,
         method: "POST",
         body: {
             t: jwt.sign({mail: "smedini@gmail.com"}, ENV.MAIL_CONFIG.welcomeTokenSecret, {expiresIn: "1d"}),

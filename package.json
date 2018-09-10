@@ -9,9 +9,9 @@
   "scripts": {
     "start": "node index.js",
     "build": "rimraf dist && babel src --out-dir dist/js && copyfiles etc/** dist",
-    "dev": "node --version && cross-env DEBUG=api:* PORT=8084 MAIL_TEMPLATE_PATH=etc/api-auth/templates MAIL_CONFIG_PATH=../secured/api-auth REST_PATH=src/rest nodemon src/index.js --exec babel-node",
-    "test": "cross-env DEBUG=api:*,test:* NODE_ENV=test PORT=9004 MAIL_TEMPLATE_PATH=etc/api-auth/templates MAIL_CONFIG_PATH=../secured/api-auth REST_PATH=src/rest mocha --recursive --require babel-register --exit \"test/**/*.js\"",
-    "testOne": "cross-env DEBUG=api:*,test:* NODE_ENV=test PORT=9004 MAIL_TEMPLATE_PATH=etc/api-auth/templates MAIL_CONFIG_PATH=../secured/api-auth REST_PATH=src/rest mocha --recursive --require babel-register --exit \"test/testGetUserInteg.js\""
+    "dev": "node --version && cross-env DEBUG=api:* PORT=8084 MAIL_TEMPLATE_PATH=etc/user/templates MAIL_CONFIG_PATH=../secured/user REST_PATH=src/rest nodemon src/index.js --exec babel-node",
+    "test": "cross-env DEBUG=api:*,test:* NODE_ENV=test PORT=9004 MAIL_TEMPLATE_PATH=etc/user/templates MAIL_CONFIG_PATH=../secured/user REST_PATH=src/rest mocha --recursive --require babel-register --exit \"test/**/*.js\"",
+    "testOne": "cross-env DEBUG=api:*,test:* NODE_ENV=test PORT=9004 MAIL_TEMPLATE_PATH=etc/user/templates MAIL_CONFIG_PATH=../secured/user REST_PATH=src/rest mocha --recursive --require babel-register --exit \"test/testPostLoginInteg.js\""
   },
   "devDependencies": {
     "babel-cli": "6.26.0",

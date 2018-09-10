@@ -22,7 +22,7 @@ describe('GET user', function () {
             }
         },
         req: {
-            url: `/api/auth/user/${userId.toString()}`
+            url: `/api/user/${userId.toString()}`
         },
         res: {
             body: {
