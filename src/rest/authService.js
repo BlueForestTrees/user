@@ -1,5 +1,4 @@
 import ENV from "../env"
-import {UnauthorizedError} from "../const/errors"
 import {findUserByMail, insertNewUser, confirmUser} from "./userService"
 import sha1 from 'sha1'
 import jwt from "jsonwebtoken"
@@ -31,9 +30,9 @@ export const confirmSuscribe = async ({t, fullname, password}, req, res) => {
 export const authenticate = async function ({mail, password}, req, res) {
     const user = await findUserByMail({mail})
     if (!user) {
-        throw new UnauthorizedError()
+        throw {code: "bf403-login"}
     } else if (user.password !== sha1(password)) {
-        throw new UnauthorizedError()
+        throw {code: "bf403-login"}
     } else {
         delete user.password
         const token = jwt.sign({user}, ENV.AUTH_TOKEN_SECRET, {expiresIn: "1d"})

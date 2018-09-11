@@ -7,9 +7,12 @@ const errorMapper = err => {
     if (err.code === 11000) {
         err.status = 400
         err.body = {errorCode: 1, message: "allready exists"}
+    } else if (err.code === 'bf403-login') {
+        err.status = 403
+        err.body = null
     }
 }
 
 export default dbInit(ENV, registry)
     .then(startExpress(ENV, errorMapper))
-    .catch(e => console.error("BOOT ERROR\n",e))
+    .catch(e => console.error("BOOT ERROR\n", e))

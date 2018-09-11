@@ -52,7 +52,7 @@ describe('POST Auth', function () {
             }
         },
         res: {
-            code: 401,
+            code: 403,
             body: null
         }
     }))
@@ -76,7 +76,7 @@ describe('POST Auth', function () {
             }
         },
         res: {
-            code: 401,
+            code: 403,
             body: null
         }
     }))
