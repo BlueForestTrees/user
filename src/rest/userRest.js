@@ -1,7 +1,8 @@
-import {run} from 'express-blueforest'
-import {validPassword, validMail, validWelcomeToken, validFullname} from "../validations"
+import {convert, run} from 'express-blueforest'
+import {validPassword, validMail, validWelcomeToken, validFullname, validId, validOptionalMixin, mixin} from "../validations"
 import {authenticate, confirmSuscribe, startSuscribe} from "./authService"
 import {Router} from "express-blueforest"
+import {findUserById, findUserByMail} from "./userService"
 
 const router = Router()
 
@@ -23,4 +24,16 @@ router.post('/api/user/login',
     validMail,
     validPassword,
     run(authenticate)
+)
+
+router.get('/api/user/:_id',
+    validId,
+    run(findUserById)
+)
+
+router.get('/api/user/mail/:mail',
+    validMail,
+    validOptionalMixin,
+    convert(mixin),
+    run(findUserByMail)
 )
