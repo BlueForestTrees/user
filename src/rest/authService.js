@@ -7,7 +7,10 @@ import {templates} from "../const/templates"
 import {X_ACCESS_TOKEN} from "../const/headers"
 
 export const startSuscribe = async ({mail}) => {
-    await insertNewUser(mail)
+    const existing = await findUserByMail({mail})
+    if (!existing) {
+        await insertNewUser(mail)
+    }
     await sendWelcomeMail(mail)
     return null
 }
@@ -35,7 +38,7 @@ export const authenticate = async function ({mail, password}, req, res) {
         throw {code: "bf403-login"}
     } else {
         delete user.password
-        const token = jwt.sign({user}, ENV.AUTH_TOKEN_SECRET, {expiresIn: "1d"})
+        const token = jwt.sign({user}, ENV.AUTH_TOKEN_SECRET, {expiresIn: "1m"})
         res.header(X_ACCESS_TOKEN, token)
         return null
     }

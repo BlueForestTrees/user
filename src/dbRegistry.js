@@ -20,7 +20,7 @@ export const registry = [
             confirmDate: new Date(),
             password: sha1("tirlititi"),
             color: "#1565c0",
-            god: true
+            rights: "G"
         })
     },
     {

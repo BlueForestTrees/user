@@ -22,7 +22,7 @@ const god = {
     password: sha1("god_password"),
     confirmDate: new Date(),
     color: getRandomColor(),
-    god: true
+    rights: "G"
 }
 
 export const authGod = {[X_ACCESS_TOKEN]: jwt.sign({user: god}, ENV.AUTH_TOKEN_SECRET, {expiresIn: "1d"})}
