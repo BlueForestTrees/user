@@ -3,6 +3,7 @@ import {validPassword, validMail, validWelcomeToken, validFullname, validId, val
 import {authenticate, confirmSuscribe, startSuscribe} from "./authService"
 import {Router} from "express-blueforest"
 import {findUserById, findUserByMail} from "./userService"
+import {check} from 'express-validator/check'
 
 const router = Router()
 
@@ -32,7 +33,7 @@ router.get('/api/user/:_id',
 )
 
 router.get('/api/user/mail/:mail',
-    validMail,
+    check("mail").isLength({min: 1, max: 500}),
     validOptionalMixin,
     convert(mixin),
     run(findUserByMail)

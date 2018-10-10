@@ -45,5 +45,15 @@ export const registry = [
             color: "#c62828",
             mail: "ademe@ademe.fr"
         })
+    },
+    {
+        version: "1.0.6",
+        log: "User OFF",
+        script: () => col(cols.USER).insertOne({
+            shortname: "Off",
+            fullname: "Open Food Fact",
+            color: "#c69f25",
+            mail: "fr.openfoodfacts.org"
+        })
     }
 ]
