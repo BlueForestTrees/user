@@ -43,7 +43,8 @@ export const registry = [
             shortname: "ADEME",
             fullname: "Agence de l'environnement et de la maîtrise de l'énergie",
             color: "#c62828",
-            mail: "ademe@ademe.fr"
+            mail: "ademe@ademe.fr",
+            site: "https://www.ademe.fr"
         })
     },
     {
@@ -53,7 +54,8 @@ export const registry = [
             shortname: "Off",
             fullname: "Open Food Fact",
             color: "#c69f25",
-            mail: "fr.openfoodfacts.org"
+            mail: "fr.openfoodfacts.org",
+            site: "https://fr.openfoodfacts.org"
         })
     }
 ]
