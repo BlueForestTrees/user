@@ -32,6 +32,7 @@ const ENV = {
 }
 
 try {
+    debug("Lecture conf mail depuis %o...", ENV.MAIL_CONFIG_PATH)
     ENV.MAIL_CONFIG = JSON.parse(fs.readFileSync(ENV.MAIL_CONFIG_PATH, 'utf8'))
 } catch (e) {
     if (ENV.NODE_ENV === "production") {
