@@ -2,13 +2,14 @@ import {cols} from "./const/collections"
 import {version, name} from './../package.json'
 import path from 'path'
 import fs from 'fs'
+
 const debug = require('debug')('api:auth')
 
 
 const ENV = {
-    NAME:name,
+    NAME: name,
     PORT: process.env.PORT || 80,
-    
+
     REST_PATH: process.env.REST_PATH || "rest",
 
     DB_CONNECTION_STRING: process.env.DB_CONNECTION_STRING,
@@ -26,19 +27,20 @@ const ENV = {
     VERSION: version,
     MORGAN: process.env.MORGAN || ':status :method :url :response-time ms - :res[content-length]',
 
-
-    MAIL_CONFIG_PATH: process.env.MAIL_CONFIG_PATH ? path.resolve(process.env.MAIL_CONFIG_PATH, "mailConfig.json") : path.resolve("/etc/user/mailConfig.json"),
-    MAIL_TEMPLATE_PATH: process.env.MAIL_TEMPLATE_PATH || path.resolve("/etc/user/templates")
-}
-
-try {
-    debug("Lecture conf mail depuis %o...", ENV.MAIL_CONFIG_PATH)
-    ENV.MAIL_CONFIG = JSON.parse(fs.readFileSync(ENV.MAIL_CONFIG_PATH, 'utf8'))
-} catch (e) {
-    if (ENV.NODE_ENV === "production") {
-        throw e
-    } else {
-        debug("Erreur à la lecture de la config de mail dans %o", ENV.MAIL_CONFIG_PATH, e.message)
+    MAIL_TEMPLATE_PATH: process.env.MAIL_TEMPLATE_PATH || path.resolve("/etc/user/templates"),
+    MAIL_CONFIG: {
+        "from": process.env.MAIL_FROM || "mailFrom",
+        "welcomeTokenSecret": process.env.MAIL_SECRET || "secret",
+        "confirmLink": "http://" + (process.env.MAIL_CALLBACK_HOST_PORT || "localhost:8079") + "/confirm/",
+        "options": {
+            "host": process.env.MAIL_HOST,
+            "port": process.env.MAIL_PORT,
+            "secure": true,
+            "auth": {
+                "user": process.env.MAIL_USER,
+                "pass": process.env.MAIL_PWD
+            }
+        }
     }
 }
 
