@@ -8,7 +8,7 @@
   "license": "MIT",
   "scripts": {
     "start": "node index.js",
-    "build": "rimraf dist && babel src --out-dir dist/js",
+    "build": "rimraf dist && ncp files dist && babel src --out-dir dist/js",
     "dev": "node --version && cross-env DEBUG=api:* PORT=8084 MAIL_TEMPLATE_PATH=etc/user/templates REST_PATH=src/rest nodemon src/index.js --exec babel-node",
     "test": "cross-env DEBUG=api:*,test:* NODE_ENV=test PORT=9004 MAIL_TEMPLATE_PATH=etc/user/templates REST_PATH=src/rest mocha --recursive --require babel-register --exit \"test/**/*.js\"",
     "testOne": "cross-env DEBUG=api:*,test:* NODE_ENV=test PORT=9004 MAIL_TEMPLATE_PATH=etc/user/templates REST_PATH=src/rest mocha --recursive --require babel-register --exit \"test/testPostLoginInteg.js\""
@@ -26,6 +26,7 @@
     "chai-http": "3.0.0",
     "jsonpath": "1.0.0",
     "mocha": "5.0.0",
+    "ncp": "^2.0.0",
     "nodemon": "1.17.3",
     "rimraf": "2.6.2",
     "test-api-express-mongo": "1.0.13"
