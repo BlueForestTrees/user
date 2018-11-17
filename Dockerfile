@@ -3,6 +3,7 @@ FROM node:alpine AS api-builder
 RUN mkdir -p /build
 COPY package.json ./build/
 COPY src/ ./build/src
+COPY templates/ ./build/templates
 
 WORKDIR /build
 RUN yarn install
