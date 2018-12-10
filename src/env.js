@@ -20,7 +20,7 @@ const ENV = {
     DB_PWD: process.env.DB_PWD || "masta",
     DB_COLLECTION: process.env.DB_COLLECTION || cols.USER,
 
-    AUTH_TOKEN_SECRET: process.env.AUTH_TOKEN_SECRET || 'fqse6}@@@#{tc\'uauauaua_f\'}_^@{}@_{{}#~@26nt8/z(_ic;ç(_q206az\'\"tct;çp_²²\\\\\\\"',
+    JWT_SECRET: process.env.JWT_SECRET || 'fqse6}@@@#{tc\'uauauaua_f\'}_^@{}@_{{}#~@26nt8/z(_ic;ç(_q206az\'\"tct;çp_²²\\\\\\\"',
 
 
     NODE_ENV: process.env.NODE_ENV || null,

@@ -25,7 +25,7 @@ const god = {
     rights: "G"
 }
 
-export const authGod = {[X_ACCESS_TOKEN]: jwt.sign({user: god}, ENV.AUTH_TOKEN_SECRET, {expiresIn: "1d"})}
+export const authGod = {[X_ACCESS_TOKEN]: jwt.sign({user: god}, ENV.JWT_SECRET, {expiresIn: "1d"})}
 
 export const database = {
     [cols.USER]: [god],

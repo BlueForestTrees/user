@@ -38,7 +38,7 @@ export const authenticate = async function ({mail, password}, req, res) {
         throw {code: "bf403-login"}
     } else {
         delete user.password
-        const token = jwt.sign({user}, ENV.AUTH_TOKEN_SECRET, {expiresIn: "20d"})
+        const token = jwt.sign({user}, ENV.JWT_SECRET, {expiresIn: "20d"})
         res.header(X_ACCESS_TOKEN, token)
         return null
     }
