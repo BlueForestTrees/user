@@ -10,26 +10,42 @@ describe('GET user', function () {
 
     const userId = createObjectId()
 
+    const user = {
+        "_id": userId,
+        "shortname": "Off",
+        "fullname": "Open Food Fact",
+        "color": "#c69f25",
+        "mail": "fr.openfoodfacts.org",
+        "site": "https://fr.openfoodfacts.org"
+    }
+
     it('GET user by id', withTest({
         db: {
             preChange: {
                 colname: cols.USER,
-                doc: {
-                    _id: userId,
-                    field1: "toto",
-                    field2: 42
-                }
+                doc: user
             }
         },
         req: {
             url: `/api/user/${userId.toString()}`
         },
         res: {
-            body: {
-                _id: userId,
-                field1: "toto",
-                field2: 42
+            body: user
+        }
+    }))
+
+    it('GET user by term', withTest({
+        db: {
+            preChange: {
+                colname: cols.USER,
+                doc: user
             }
+        },
+        req: {
+            url: `/api/user/term/Food`
+        },
+        res: {
+            body: [user]
         }
     }))
 

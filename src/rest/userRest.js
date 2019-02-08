@@ -1,8 +1,8 @@
 import {convert, run} from 'express-blueforest'
-import {validPassword, validMail, validWelcomeToken, validFullname, validId, validOptionalMixin, mixin} from "../validations"
+import {validPassword, validMail, validWelcomeToken, validFullname, validId, validOptionalMixin, mixin, validTerm} from "../validations"
 import {authenticate, confirmSuscribe, startSuscribe} from "./authService"
 import {Router} from "express-blueforest"
-import {findUserById, findUserByMail} from "./userService"
+import {findUserById, findUserByMail, findUserByTerm} from "./userService"
 import {check} from 'express-validator/check'
 
 const router = Router()
@@ -31,6 +31,10 @@ router.get('/api/user/:_id',
     validId,
     run(findUserById)
 )
+router.get('/api/user/term/:term',
+    validTerm,
+    run(findUserByTerm)
+)
 
 router.get('/api/user/mail/:mail',
     check("mail").isLength({min: 1, max: 500}),
@@ -38,3 +42,4 @@ router.get('/api/user/mail/:mail',
     convert(mixin),
     run(findUserByMail)
 )
+

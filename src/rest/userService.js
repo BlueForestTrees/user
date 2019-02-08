@@ -2,10 +2,13 @@ import {col} from "mongo-registry"
 import sha1 from 'sha1'
 import {userStatus} from "../const/userStatus"
 import {cols} from "../const/collections"
+import regexEscape from "regex-escape"
 
 const debug = require('debug')('api:user')
 
 const users = () => col(cols.USER)
+
+export const findUserByTerm = ({term}) => users().find({fullname:{$regex: new RegExp(`^.*${regexEscape(term)}.*`, "i")}}).toArray()
 
 export const findUserByMail = async ({mail, mixin}) => users().findOne({mail}, {projection: mixin})
 

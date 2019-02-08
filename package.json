@@ -1,6 +1,6 @@
 {
   "name": "user",
-  "version": "1.0.9",
+  "version": "1.1.0",
   "description": "user",
   "main": "dist/index.js",
   "repository": "https://github.com/BlueForestTrees/user.git",
@@ -45,6 +45,7 @@
     "mongo-registry": "1.0.15",
     "nested-error-stacks": "2.1.0",
     "nodemailer": "4.6.8",
+    "regex-escape": "3.4.9",
     "sha1": "1.1.1",
     "v-file-upload": "3.1.3"
   },

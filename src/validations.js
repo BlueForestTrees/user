@@ -6,6 +6,7 @@ export const validMongoId = field => mongoId(check(field))
 
 
 export const validId = validMongoId("_id")
+export const validTerm = check('term').isLength({min: 1, max: 100}).matches(/^.+/)
 export const validFullname = check('fullname').isLength({min: 1, max: 100}).matches(/^.+/)
 export const validMail = check("mail").isEmail().normalizeEmail().withMessage('mail invalid')
 export const validWelcomeToken = check('t').exists()
