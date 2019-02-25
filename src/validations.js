@@ -13,7 +13,7 @@ export const validFullname = check('fullname').isLength({min: 1, max: 100}).matc
 export const validMail = check("mail").isEmail().normalizeEmail().withMessage('mail invalid')
 export const validWelcomeToken = check('t').exists()
 export const validPassword = check('password').isLength({min: 1, max: 100}).matches(/^.+/)
-export const validDescription = check('description').isLength({min: 0, max: 300}).matches(/^.+/)
+export const validDescription = check('description').isLength({min:0, max: 300})
 
 export const validOptionalMixin = header("mixin").optional().exists()
 export const mixin = o => {
