@@ -1,9 +1,8 @@
 import {cols} from "./const/collections"
 import {version, name} from './../package.json'
 import path from 'path'
-import fs from 'fs'
 
-const debug = require('debug')('api:auth')
+const debug = require('debug')('api:user')
 
 
 const ENV = {

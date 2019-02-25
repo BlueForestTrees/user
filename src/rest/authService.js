@@ -15,7 +15,7 @@ export const startSuscribe = async ({mail}) => {
     return null
 }
 
-const sendWelcomeMail = mail => doMail({
+export const sendWelcomeMail = mail => doMail({
         to: mail,
         subject: `Confirmer ${mail} pour BlueForest`,
         link: `${ENV.MAIL_CONFIG.confirmLink}${jwt.sign({mail, date: new Date()}, ENV.MAIL_CONFIG.welcomeTokenSecret, {expiresIn: "1d"})}`

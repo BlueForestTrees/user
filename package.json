@@ -1,6 +1,6 @@
 {
   "name": "user",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "user",
   "main": "dist/index.js",
   "repository": "https://github.com/BlueForestTrees/user.git",
@@ -9,9 +9,9 @@
   "scripts": {
     "start": "node index.js",
     "build": "rimraf dist && babel src --out-dir dist/js && copyfiles templates/** dist",
-    "dev": "node --version && cross-env DEBUG=api:* PORT=8084 MAIL_TEMPLATE_PATH=etc/user/templates REST_PATH=src/rest nodemon src/index.js --exec babel-node",
-    "test": "cross-env DEBUG=api:*,test:* NODE_ENV=test PORT=9004 MAIL_TEMPLATE_PATH=etc/user/templates REST_PATH=src/rest mocha --recursive --require babel-register --exit \"test/**/*.js\"",
-    "testOne": "cross-env DEBUG=api:*,test:* NODE_ENV=test PORT=9004 MAIL_TEMPLATE_PATH=etc/user/templates REST_PATH=src/rest mocha --recursive --require babel-register --exit \"test/testPostLoginInteg.js\""
+    "dev": "node --version && cross-env DEBUG=api:* PORT=8084 MAIL_TEMPLATE_PATH=templates REST_PATH=src/rest nodemon src/index.js --exec babel-node",
+    "test": "cross-env DEBUG=api:*,test:* NODE_ENV=test PORT=9004 MAIL_TEMPLATE_PATH=templates REST_PATH=src/rest mocha --recursive --require babel-register --exit \"test/**/*.js\"",
+    "testOne": "cross-env DEBUG=api:*,test:* NODE_ENV=test PORT=9004 MAIL_TEMPLATE_PATH=templates REST_PATH=src/rest mocha --recursive --require babel-register --exit \"test/testPostLoginInteg.js\""
   },
   "devDependencies": {
     "babel-cli": "6.26.0",

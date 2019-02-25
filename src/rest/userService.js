@@ -8,7 +8,7 @@ const debug = require('debug')('api:user')
 
 const users = () => col(cols.USER)
 
-export const findUserByTerm = ({term}) => users().find({fullname:{$regex: new RegExp(`^.*${regexEscape(term)}.*`, "i")}}).toArray()
+export const findUserByTerm = ({term}) => users().find({fullname: {$regex: new RegExp(`^.*${regexEscape(term)}.*`, "i")}}).toArray()
 
 export const findUserByMail = async ({mail, mixin}) => users().findOne({mail}, {projection: mixin})
 
@@ -25,6 +25,10 @@ export const confirmUser = ({mail, fullname, password}) => users().updateOne({ma
         color: getRandomColor()
     }
 })
+
+export const updateUser = user => users()
+    .updateOne({_id: user._id}, {$set: {...user}})
+    .then(v => v.result)
 
 const getRandomColor = () => {
     const letters = '0123456789ABCDEF'
