@@ -9,6 +9,7 @@
   "scripts": {
     "start": "node index.js",
     "build": "rimraf dist && babel src --out-dir dist/js && copyfiles templates/** dist",
+    "dev_famille": "node --version && cross-env DEBUG=api:* PORT=9084 DB_NAME=FamilyDB MAIL_TEMPLATE_PATH=templates REST_PATH=src/rest nodemon src/index.js --exec babel-node",
     "dev": "node --version && cross-env DEBUG=api:* PORT=8084 MAIL_TEMPLATE_PATH=templates REST_PATH=src/rest nodemon src/index.js --exec babel-node",
     "test": "cross-env DEBUG=api:*,test:* NODE_ENV=test PORT=9004 MAIL_TEMPLATE_PATH=templates REST_PATH=src/rest mocha --recursive --require babel-register --exit \"test/**/*.js\"",
     "testOne": "cross-env DEBUG=api:*,test:* NODE_ENV=test PORT=9004 MAIL_TEMPLATE_PATH=templates REST_PATH=src/rest mocha --recursive --require babel-register --exit \"test/testPostLoginInteg.js\""
