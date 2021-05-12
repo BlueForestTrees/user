@@ -45,7 +45,7 @@
     "lodash": "4.17.10",
     "mongo-registry": "1.0.15",
     "nested-error-stacks": "2.1.0",
-    "nodemailer": "4.6.8",
+    "nodemailer": "6.4.16",
     "regex-escape": "3.4.9",
     "sha1": "1.1.1",
     "v-file-upload": "3.1.3"
